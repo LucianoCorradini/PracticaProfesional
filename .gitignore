@@ -1,0 +1,7 @@
+*.pyc
+env/
+*~
+*.log
+.converage
+_build
+db.sqlite3
