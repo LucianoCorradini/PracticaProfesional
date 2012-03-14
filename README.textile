@@ -1,0 +1,76 @@
+h1. Instrucciones de instalación
+
+sistema operativo recomendado: Ubuntu 11.x
+
+h2. instalación de Python, Pip y Virtual Env
+
+* *instalar python2.7 (si no está instalado)*
+
+bq. $ sudo apt-get install python2.7
+
+* *instalar PIP* (para instalar librerías en python)
+
+bq. $ sudo apt-get install python-pip
+
+* *Instalar virtual env* (entorno de desarrollo virtual)
+
+bq. $ pip install virtualenv
+
+h2. Instalación de Git (repositorio online)
+
+Es necesario tener una cuenta en github: https://github.com
+Seguir la guia de instalación en: http://help.github.com/linux-set-up-git/
+
+h2. Clonar e inicializar el proyecto
+
+* *posicionarse en el directorio del proyecto*
+
+bq. $ cd <directorio del proyecto>
+
+* *crear un entorno virtual* (en el directorio del proyecto)
+
+bq. $ virtualenv --no-site-packages env
+
+* *clonar el repositorio*
+
+bq. $ git clone git@github.com:LucianoCorradini/PracticaProfesional.git
+
+h2. Correr el server
+
+* *Activar Virtual Env*
+
+bq. $ . env/bin/activate
+
+el tag "(env)" en el promp indica que el entorno virtual está activado.
+
+* *Actualizar los cambios desde el repositorio remoto*
+
+bq. (env)$ git fetch
+
+* *Acceder al branch master*
+
+bq. (env)$ git checkout origin/master
+
+Si lanza el siguiente error:
+
+bq. "Please, commit your changes or stash them before you can switch branches."
+
+es necesario hacer un commit de los cambios al repositorio local,
+o ejecutar el comando reset y volver a hacer checkout 
+(se perderán todos los cambios)
+
+bq. (env)$ git reset --hard
+(env)$ git checkout origin/master
+
+* *instalar paquetes desde el archivo de requerimientos*
+
+bq. (env)$ pip freeze -r requirements.txt
+
+* *correr el servidor*
+
+bq. (env)$ python pp/manage.py runserver
+
+El servidor corre en:   http://localhost:8000/         (todabia no hay nada)
+El admin corre en:      http://localhost:8000/admin/
+
+
