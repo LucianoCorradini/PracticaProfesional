@@ -1,40 +1,34 @@
-h1. WiP: Instrucciones de instalación
-h3. sistema operativo recomendado: Ubuntu 11.x
+h1. Instrucciones de instalación
+sistema operativo recomendado: Ubuntu 11.x
 
 h2. instalación de Python, Pip y Virtual Env
 
-h3. instalar python2.7 (si no está instalado)
-code. $ sudo apt-get install python2.7
+instalar python2.7 (si no está instalado)
+bq. $ sudo apt-get install python2.7
 
-h3. instalar PIP (para instalar librerías en python)
-quote. $ sudo apt-get install python-pip
+instalar PIP (para instalar librerías en python)
+bq. $ sudo apt-get install python-pip
 
-h3. Instalar virtual env (entorno de desarrollo virtual)
-$ pip install virtualenv
+Instalar virtual env (entorno de desarrollo virtual)
+bq. $ pip install virtualenv
 
-###############################################################################
-##          ---- Instalación de Git (repositorio online) ----                ##
-###############################################################################
+h2. Instalación de Git (repositorio online)
 
-## Es necesario tener una cuenta en github: https://github.com
-## Seguir la guia de instalación en: http://help.github.com/linux-set-up-git/
+Es necesario tener una cuenta en github: https://github.com
+Seguir la guia de instalación en: http://help.github.com/linux-set-up-git/
 
-###############################################################################
-##                  Clonar e inicializar el proyecto                         ##
-###############################################################################
+h2. Clonar e inicializar el proyecto
 
-## posicionarse en el directorio del proyecto
-$ cd <directorio del proyecto>
+posicionarse en el directorio del proyecto
+bq. $ cd <directorio del proyecto>
 
-## crear un entorno virtual (en el directorio del proyecto)
-$ virtualenv --no-site-packages env
+crear un entorno virtual (en el directorio del proyecto)
+bq. $ virtualenv --no-site-packages env
 
 ## clonar el repositorio
 $ git clone git@github.com:LucianoCorradini/PracticaProfesional.git
 
-###############################################################################
-##                           Correr el server                                ##
-###############################################################################
+h2. Correr el server
 
 ## Activar Virtual Env
 $ . env/bin/activate
