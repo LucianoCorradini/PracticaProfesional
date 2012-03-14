@@ -1,15 +1,19 @@
-h1. WiP: Instrucciones de instalación
-h3. sistema operativo recomendado: Ubuntu 11.x
+###############################################################################
+##                  WiP: Instrucciones de instalación                        ##
+##    - sistema operativo recomendado: Ubuntu 11.x                           ##
+###############################################################################
 
-h2. instalación de Python, Pip y Virtual Env
+###############################################################################
+##           instalación de Python, Pip y Virtual Env                        ##
+###############################################################################
 
-h3. instalar python2.7 (si no está instalado)
-code. $ sudo apt-get install python2.7
+## instalar python2.7 (si no está instalado)
+$ sudo apt-get install python2.7
 
-h3. instalar PIP (para instalar librerías en python)
-quote. $ sudo apt-get install python-pip
+## instalar PIP (para instalar librerías en python)
+$ sudo apt-get install python-pip
 
-h3. Instalar virtual env (entorno de desarrollo virtual)
+## Instalar virtual env (entorno de desarrollo virtual)
 $ pip install virtualenv
 
 ###############################################################################
