@@ -4,15 +4,15 @@ sistema operativo recomendado: Ubuntu 11.x
 
 h2. instalación de Python, Pip y Virtual Env
 
-*instalar python2.7 (si no está instalado)p
+* *instalar python2.7 (si no está instalado)*
 
 bq. $ sudo apt-get install python2.7
 
-*instalar PIP* (para instalar librerías en python)
+* *instalar PIP* (para instalar librerías en python)
 
 bq. $ sudo apt-get install python-pip
 
-*Instalar virtual env* (entorno de desarrollo virtual)
+* *Instalar virtual env* (entorno de desarrollo virtual)
 
 bq. $ pip install virtualenv
 
@@ -23,31 +23,31 @@ Seguir la guia de instalación en: http://help.github.com/linux-set-up-git/
 
 h2. Clonar e inicializar el proyecto
 
-*posicionarse en el directorio del proyecto*
+* *posicionarse en el directorio del proyecto*
 
 bq. $ cd <directorio del proyecto>
 
-*crear un entorno virtual* (en el directorio del proyecto)
+* *crear un entorno virtual* (en el directorio del proyecto)
 
 bq. $ virtualenv --no-site-packages env
 
-*clonar el repositorio*
+* *clonar el repositorio*
 
 bq. $ git clone git@github.com:LucianoCorradini/PracticaProfesional.git
 
 h2. Correr el server
 
-*Activar Virtual Env*
+* *Activar Virtual Env*
 
 bq. $ . env/bin/activate
 
 el tag "(env)" en el promp indica que el entorno virtual está activado.
 
-*Actualizar los cambios desde el repositorio remoto*
+* *Actualizar los cambios desde el repositorio remoto*
 
 bq. (env)$ git fetch
 
-*Acceder al branch master*
+* *Acceder al branch master*
 
 bq. (env)$ git checkout origin/master
 
@@ -62,11 +62,11 @@ o ejecutar el comando reset y volver a hacer checkout
 bq. (env)$ git reset --hard
 (env)$ git checkout origin/master
 
-*instalar paquetes desde el archivo de requerimientos*
+* *instalar paquetes desde el archivo de requerimientos*
 
 bq. (env)$ pip freeze -r requirements.txt
 
-*correr el servidor*
+* *correr el servidor*
 
 bq. (env)$ python pp/manage.py runserver
 
