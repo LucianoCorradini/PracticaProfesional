@@ -1,3 +1,7 @@
+Trabajo de Práctica Profesional
+Lic. en Sistemas de Información
+Universidad Nacional de Luján
+
 h1. Instrucciones de instalación
 
 sistema operativo recomendado: Ubuntu 11.x
@@ -72,5 +76,4 @@ bq. (env)$ python pp/manage.py runserver
 
 El servidor corre en:   http://localhost:8000/         (todabia no hay nada)
 El admin corre en:      http://localhost:8000/admin/
-
 
