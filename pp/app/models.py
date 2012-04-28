@@ -3,9 +3,11 @@ from django.contrib.auth.models import User
 
 ESTADOS_RESERVA = (
     ('A', 'Activa'),
-    ('C', 'Completa'), # Se realizo con exito
-    ('X', 'Cancelada'),
-    ('P', 'Pendiente'), # falta la totalidad del pago
+    ('R', 'Rechazada'),
+    ('E', 'En Espera'),
+    ('X', 'En Curso'),
+    ('F', 'Finalizada'),
+    ('C', 'Completada'),
 )
 
 
