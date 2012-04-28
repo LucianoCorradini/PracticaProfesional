@@ -6,7 +6,11 @@
     Universidad Nacional de Luján.
     
     Copyright (C) 2012  --
-                Nicolas Sarubbi  -- nicolas@sarubbi.com.ar
+            Nicolas Sarubbi  -- nicolas@sarubbi.com.ar
+            Brian Blanque -- bblanque@gmail.com
+            Luciano Corradini -- luckcorradini_147@hotmail.com
+            Victor Villarreal -- victor88_v@hotmail.com
+            Hernan Najles -- pope_141@hotmail.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
