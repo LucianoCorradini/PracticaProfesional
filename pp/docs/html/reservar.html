@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Sistema de Gestión Hotelera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 100px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+<!--      .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -43px;
+      }
+-->
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+    <div class="navbar-fixed-top" id="nav1">
+<!--    <div class="wrapper"> -->
+    <div class="push">
+    <div class="container-fluid">
+        <form>
+          <p class="pull-right">
+            <input type="text" class="input-small" type="text" placeholder="Usuario">
+            <input type="password" class="input-small" type="text" placeholder="Contraseña"><br />
+            <button type="submit" class="btn" href="#">log in</button>
+            <button type="submit" class="btn" href="#">log out</button>
+          </p>
+        </form>
+    </div>
+    </div>
+<!--    </div> -->
+    <div class="navbar" id="nav2">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Sistema de Gestión Hotelera</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Quienes Somos</a></li>
+              <li><a href="#">Galería</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li class="dropdown" id="menu1">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                  Reservas
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a href="#">Reservar</a></li>
+                  <li><a href="#">Consultar Reservas</a></li>
+                </ul>
+              </li>
+              <li class="dropdown" id="menu2">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                  Administración de Hotel
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Gestión de Promociones</a></li>
+                  <li><a href="#">Gestión de Servicios</a></li>
+                  <li><a href="#">Gestión de Paquetes</a></li>
+                </ul>
+              </li>
+              <li class="dropdown" id="menu3">
+                <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                  Usuarios
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Gestión de Usuarios</a></li>
+                  <li><a href="#">Gestión de Roles</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" >
+      <form class="well" id="CaracteristicasHabitacion">
+          <p class="pull-right">
+            <button type="submit" class="btn">Solicitar Paquete</button>
+          </p>
+          <div class="control-group">
+            Tipo de Habitación
+            <div class="controls">
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div><br />
+        <p>
+        Cantidad de Personas <input type="text" class="input-small"><br />
+        Desde <input type="text" class="input-small">
+        Hasta <input type="text" class="input-small">
+        </p>
+         <div class="control-group">
+            <label class="control-label" for="textarea">Detalles</label>
+            <div class="controls">
+              <textarea class="input-large" id="textarea" rows="3"></textarea>
+            </div>
+          </div>
+        <div class="form-actions">
+            <p class="pull-right">
+              <button type="submit" class="btn btn-primary">Continuar</button>
+            </p>
+            <p class="pull-left">
+              <button class="btn">Cancelar</button>
+            </p>
+          </div>
+      </form>
+
+      <form class="well" id="SeleccionServicios">
+          <div class="control-group">
+            Servicio
+            <div class="controls">
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div><br />
+        <p>
+        Desde <input type="text" class="input-small">
+        Hasta <input type="text" class="input-small">
+        </p>
+        <div class="form-actions">
+            <p class="pull-right">
+              <button type="submit" class="btn btn-primary">Continuar</button>
+            </p>
+            <p class="pull-left">
+              <button class="btn">Cancelar</button>
+            </p>
+          </div>
+      </form>
+
+      <form class="well" id="IngresoDatos">
+          <p class="pull-right">
+            Apellido y Nombre <input type="text" class="input-small">
+          </p>
+          <div class="control-group">
+            Tipo de Documento
+            <div class="controls">
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        Número <input type="text" class="input-small">
+        <p>
+        <br />
+        Teléfono <input type="text" class="input-medium">
+        E-Mail <input type="text" class="input-medium">
+        Dirección <input type="text" class="input-medium">
+        Localidad <input type="text" class="input-medium">
+        </p>
+        <div class="form-actions">
+            <p class="pull-right">
+              <button type="submit" class="btn btn-primary">Continuar</button>
+            </p>
+            <p class="pull-left">
+              <button class="btn">Cancelar</button>
+            </p>
+          </div>
+      </form>
+
+      <form class="well" id="SeleccionPaquete">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Paquete</th>
+              <th>Cant. Personas</th>
+              <th>Servicios Incluidos</th>
+              <th>Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="checkbox"></td>
+          </tbody>
+        </table>
+      </form>    
+
+      <form class="well" id="HabitacionesDisponibles">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Cant. Personas</th>
+              <th>Seleccionar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td></td>
+            <td></td>
+            <td><input type="checkbox"></td>
+          </tbody>
+        </table>
+      </form>
+      
+    </div> <!-- /container -->
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="container-fluid">
+        <p class="pull-right"><a href="#">Volver arriba</a></p>
+        <p>Diseñado con <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter-Bootstrap</a>.</p>
+        <p>Código bajo <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentación licenciada bajo <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>Iconos por <a href="http://glyphicons.com">Glyphicons Free</a>, licenciado bajo <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      </div>
+      </footer>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+  </body>
+</html>
