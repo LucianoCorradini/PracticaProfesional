@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="form-horizontal" method="post" action="/datos_personales">
+    {% csrf_token %}
+  <fieldset>
+    <legend>Datos Personales</legend>
+    <div class="control-group">
+
+      <label class="control-label" for="tipo_documento">Documento</label>
+      <div class="controls">
+        <select class="span1" id="tipo_documento">
+            <option> DNI </option>
+            <option> LC </option>
+            <option> LE </option>
+            <option> CI </option>
+        </select>
+        <input class="spam3" name="documento", id="documento"/>        
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email"> EMail </label>
+      <div class="controls">
+        <span class="add-on">@</span>
+        <input id="email" class="span3" size="16" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="telefono"> Telefono </label>
+      <div class="controls">
+        <span class="add-on">#</span>
+        <input id="telefono" class="span3" size="16" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="direccion"> Dirección </label>
+      <div class="controls">
+        <input id="direccion" class="span3" size="16" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="localidad"> Localidad </label>
+      <div class="controls">
+        <input id="localidad" class="span3" size="16" type="text">
+      </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" name="commit" value="continuar">
+            Continuar</button>
+        <button class="btn" name="commit" value="cancelar">Cancelar</button>
+    </div>
+
+  </fieldset>
+</form>
+
+{% endblock %}
