@@ -1,4 +1,9 @@
 # Django settings for pp project.
+import os
+
+def rel(*args):
+    """ Return a path relative to this file """
+    return os.path.join(os.path.dirname(__file__), *args)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -31,7 +36,7 @@ TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-AR'
 
 SITE_ID = 1
 
@@ -72,6 +77,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    rel('static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -106,6 +112,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    rel('templates'),
 )
 
 INSTALLED_APPS = (
