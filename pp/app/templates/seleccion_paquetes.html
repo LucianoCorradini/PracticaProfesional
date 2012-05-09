@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="form-horizontal" method="post" action="/seleccion_paquetes">
+    {% csrf_token %}
+    <fieldset>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Paquete</td>
+                <td>Cant. Personas</td>
+                <td>Servicios Incluidos</td>
+                <td>Seleccionar</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {# for paquete in paquetes, el ultimo es un checkbox #}
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" name="commit" value="continuar">
+                Continuar</button>
+            <button class="btn" name="commit" value="cancelar">Cancelar</button>
+        </div>
+
+    </fieldset>
+</form>
+
+{% endblock container %}

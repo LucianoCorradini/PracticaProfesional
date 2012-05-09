@@ -10,8 +10,12 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
+
     url(r'^reservar$', views.reservar),
     url(r'^datos_personales$', views.datos_personales),
+    url(r'^seleccion_servicios$', views.seleccion_servicios),
+    url(r'^seleccion_paquetes$', views.seleccion_paquetes),
+    url(r'^habitaciones_disponibles$', views.habitaciones_disponibles),
 
     url(r'login/$', 'django.contrib.auth.views.login'),
     url(r'logout/$', 'django.contrib.auth.views.logout'),
