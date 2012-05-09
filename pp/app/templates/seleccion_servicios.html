@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="form-horizontal" method="post" action="/seleccion_servicios">
+    {% csrf_token %}
+    <fieldset>
+    <legend>Seleccionar caracteristicas de la habitacion</legend>
+    <div class="control-group">
+      <label class="control-label" for="servicio">Servicio</label>
+      <div class="controls">
+        <select class="input-xlarge" id="servicio">
+          <option> 1 </option>
+          <option> 2 </option>
+          <option> 3 </option>
+          <option> 4 </option>
+        </select>
+      </div>
+    </div>
+
+    <p>
+    <div class="control-group">
+    <label class="control-label" for="email"> Desde </label>
+      <div class="controls">
+        <input id="desde" class="span1" size="16" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="email"> Hasta </label>
+      <div class="controls">
+        <input id="desde" class="span1" size="16" type="text">
+      </div>
+    </div>
+    </p>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" name="commit" value="continuar">
+            Continuar</button>
+        <button class="btn" name="commit" value="cancelar">Cancelar</button>
+    </div>
+
+    </fieldset>
+</form>
+
+{% endblock container %}
