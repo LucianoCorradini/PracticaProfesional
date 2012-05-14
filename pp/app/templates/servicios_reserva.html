@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="well form-horizontal" method="post" action="/reservar">
+    {% csrf_token %}
+    <fieldset>
+    <legend>Servicios de la Reserva {#Numero Reserva#}</legend>
+
+    <div class="control-group ">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Servicio</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions btn-group">
+        <button class="btn" name="commit" value="cancelar">Cancelar</button>
+        <button type="submit" class="btn btn-primary" name="commit" value="modificar">
+            Modificar</button>
+    </div>
+
+    </fieldset>
+</form>
+{% endblock container %}

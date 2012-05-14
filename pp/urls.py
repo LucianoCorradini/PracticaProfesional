@@ -17,6 +17,14 @@ urlpatterns = patterns('',
     url(r'^seleccion_paquetes$', views.seleccion_paquetes),
     url(r'^habitaciones_disponibles$', views.habitaciones_disponibles),
 
+    url(r'^buscar_reserva$', views.buscar_reserva),
+    url(r'^servicios_reserva$', views.servicios_reserva),
+
+    url(r'^gestion_habitaciones$', views.gestion_habitaciones),
+    url(r'^gestion_servicios$', views.gestion_servicios),
+    url(r'^gestion_promociones$', views.gestion_promociones),
+    url(r'^gestion_paquetes$', views.gestion_paquetes),
+
     url(r'login/$', 'django.contrib.auth.views.login'),
     url(r'logout/$', 'django.contrib.auth.views.logout'),
 
