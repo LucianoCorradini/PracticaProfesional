@@ -67,22 +67,60 @@ def habitaciones_disponibles(request):
 #######################
 
 
-#def buscar_reserva(request):
-#    if request.method == "POST":
-#        if request.POST["commit"] == "cancelar":
-#            return redirect("/")
-#        else:
-#            return redirect("buscar_reserva")
-#    return render(request, "buscar_reserva.html")
-#
-#
-#def servicios_reserva(request):
-#    if request.method == "POST":
-#        if request.POST["commit"] == "cancelar":
-#            return redirect("/")
-#        else:
-#            return redirect("servicios_reserva")
-#    return render(request, "servicios_reserva.html")
-#
+def buscar_reserva(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("buscar_reserva")
+    return render(request, "buscar_reserva.html")
 
+
+def servicios_reserva(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("servicios_reserva")
+    return render(request, "servicios_reserva.html")
+
+
+#######################
+#-  UI  Admin Hotel  -#
+#######################
+
+
+def gestion_habitaciones(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("gestion_habitaciones")
+    return render(request, "gestion_habitaciones.html")
+
+
+def gestion_servicios(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("gestion_servicios")
+    return render(request, "gestion_servicios.html")
+
+
+def gestion_promociones(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("gestion_promociones")
+    return render(request, "gestion_promociones.html")
+
+def gestion_paquetes(request):
+    if request.method == "POST":
+        if request.POST["commit"] == "cancelar":
+            return redirect("/")
+        else:
+            return redirect("gestion_paquetes")
+    return render(request, "gestion_paquetes.html")
 

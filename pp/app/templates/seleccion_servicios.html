@@ -2,7 +2,7 @@
 
 {% block container %}
 
-<form class="form-horizontal" method="post" action="/seleccion_servicios">
+<form class="well form-horizontal" method="post" action="/seleccion_servicios">
     {% csrf_token %}
     <fieldset>
     <legend>Seleccionar caracteristicas de la habitacion</legend>
@@ -20,21 +20,21 @@
 
     <p>
     <div class="control-group">
-    <label class="control-label" for="email"> Desde </label>
+    <label class="control-label" for="desde"> Desde </label>
       <div class="controls">
         <input id="desde" class="span1" size="16" type="text">
       </div>
     </div>
 
     <div class="control-group">
-    <label class="control-label" for="email"> Hasta </label>
+    <label class="control-label" for="hasta"> Hasta </label>
       <div class="controls">
-        <input id="desde" class="span1" size="16" type="text">
+        <input id="hasta" class="span1" size="16" type="text">
       </div>
     </div>
     </p>
 
-    <div class="form-actions">
+    <div class="form-actions btn-group">
         <button type="submit" class="btn btn-primary" name="commit" value="continuar">
             Continuar</button>
         <button class="btn" name="commit" value="cancelar">Cancelar</button>

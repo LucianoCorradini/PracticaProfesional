@@ -19,8 +19,8 @@ ESTADOS_SERVICIO = (
 TIPOS_DOCUMENTO = (
     ('DNI', 'DNI'),
     ('LC', 'LC'),
-    ('LE','LE'),
-    ('CI','CI'),
+    ('LE', 'LE'),
+    ('CI', 'CI'),
 )
 
 
@@ -48,9 +48,9 @@ class SolicitudReserva(models.Model):
     fin = models.DateTimeField()
     comentario = models.TextField()
 
-    def __unicode__(self):
-        return self.cliente.__unicode__() +
-               u" , Solicitud %s" % (self.id)
+#    def __unicode__(self):
+#        return (self.cliente.__unicode__() +
+#               u" , Solicitud %s" % (self.id))
 
 
 class Reserva(models.Model):
@@ -64,9 +64,9 @@ class Reserva(models.Model):
     pagado = models.DecimalField(max_digits=10, decimal_places=2)
     comentario = models.TextField()
 
-    def __unicode__(self):
-        return self.solicitud.cliente.__unicode__() +
-               u" , Reserva %s" % (self.id)
+#    def __unicode__(self):
+#        return (self.solicitud.cliente.__unicode__() +
+#               u" , Reserva %s" % (self.id))
 
 
 class TipoHabitacion(models.Model):
@@ -80,10 +80,11 @@ class TipoHabitacion(models.Model):
 
 
 class Caracteristica(models.Model):
+    nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
 
     def __unicode__(self):
-        return unicode(self.descripcion)
+        return unicode(self.nombre)
 
 
 class Habitacion(models.Model):
@@ -137,7 +138,7 @@ class TurnoHabitacion(Turno):
 
 class DetalleReserva(models.Model):
     reserva = models.ForeignKey(Reserva)
-    fechahora = models.DateTimeField  # de llegada perhaps??
+    fechahora = models.DateTimeField()  # de llegada perhaps??
     turnos = models.PositiveIntegerField()  # pondria llegada y salida
     monto = models.DecimalField(max_digits=10, decimal_places=2)
 

@@ -2,29 +2,29 @@
 
 {% block container %}
 
-<form class="form-horizontal" method="post" action="/seleccion_paquetes">
+<form class="well form-horizontal" method="post" action="/seleccion_paquetes">
     {% csrf_token %}
     <fieldset>
         <table class="table">
             <thead>
             <tr>
-                <td>Paquete</td>
-                <td>Cant. Personas</td>
-                <td>Servicios Incluidos</td>
-                <td>Seleccionar</td>
+                <th>Paquete</th>
+                <th>Cant. Personas</th>
+                <th>Servicios Incluidos</th>
+                <th>Seleccionar</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                {# for paquete in paquetes, el ultimo es un checkbox #}
+                {# for paquete in paquetes, el ultimo elemento de la fila es un checkbox #}
                 </tr>
             </tbody>
         </table>
 
-        <div class="form-actions">
+        <div class="form-actions btn-group">
+            <button class="btn" name="commit" value="cancelar">Cancelar</button>
             <button type="submit" class="btn btn-primary" name="commit" value="continuar">
                 Continuar</button>
-            <button class="btn" name="commit" value="cancelar">Cancelar</button>
         </div>
 
     </fieldset>

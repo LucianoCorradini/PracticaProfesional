@@ -2,7 +2,7 @@
 
 {% block container %}
 
-<form class="form-horizontal" method="post" action="/datos_personales">
+<form class="well form-horizontal" method="post" action="/datos_personales">
     {% csrf_token %}
   <fieldset>
     <legend>Datos Personales</legend>
@@ -16,23 +16,21 @@
             <option> LE </option>
             <option> CI </option>
         </select>
-        <input class="spam3" name="documento", id="documento"/>        
+        <input class="span2" name="documento", id="documento"/>
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="email"> EMail </label>
+      <label class="control-label" for="email"> Correo electrónico </label>
       <div class="controls">
-        <span class="add-on">@</span>
-        <input id="email" class="span3" size="16" type="text">
+        <input id="email" class="span2" size="16" type="text">
       </div>
     </div>
 
     <div class="control-group">
       <label class="control-label" for="telefono"> Telefono </label>
       <div class="controls">
-        <span class="add-on">#</span>
-        <input id="telefono" class="span3" size="16" type="text">
+        <input id="telefono" class="span2" size="16" type="text">
       </div>
     </div>
 
@@ -50,10 +48,10 @@
       </div>
     </div>
 
-    <div class="form-actions">
+    <div class="form-actions btn-group">
+        <button class="btn" name="commit" value="cancelar">Cancelar</button>
         <button type="submit" class="btn btn-primary" name="commit" value="continuar">
             Continuar</button>
-        <button class="btn" name="commit" value="cancelar">Cancelar</button>
     </div>
 
   </fieldset>
