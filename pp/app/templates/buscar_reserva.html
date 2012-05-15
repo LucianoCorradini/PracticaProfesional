@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="well form-horizontal" method="post" action="/reservar">
+    {% csrf_token %}
+    <fieldset>
+    <legend>Buscar Reserva</legend>
+
+
+    <div class="control-group">
+    <label class="control-label" for="reserva"> Número de reserva </label>
+    <div class="controls">
+        <input id="reserva" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="reserva"> Cliente </label>
+    <div class="controls">
+        <input id="cliente" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="desde"> Desde </label>
+    <div class="controls">
+        <input id="desde" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="hasta"> Hasta </label>
+    <div class="controls">
+        <input id="hasta" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="tipo_habitacion">Tipo de Habitación</label>
+    <div class="controls">
+        <select class="input-xlarge" id="tipo_habitacion">
+            <option> Suite Imperial </option>
+            <option> Habitación doble matrimonial </option>
+            <option> Habitación doble, 2 camas </option>
+            <option> Habitación cuadruple, familiar </option>
+        </select>
+    </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" name="commit" value="buscar">
+            Buscar</button>
+    </div>
+
+    <br />
+
+    <legend>Reservas Encontradas</legend>
+
+    <div class="control-group ">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo de habitación</th>
+                <th>Cliente</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions btn-group">
+        <button type="submit" class="btn btn-primary" name="check-in">
+            Check-in</button>
+        <button type="submit" class="btn btn-primary" name="check-out">
+            Check-out</button>
+        <button type="submit" class="btn btn-warning" name="imprimir_constancia_reserva">
+            Imprimir constancia de reserva</button>
+        <button type="submit" class="btn btn-warning" name="eliminar">
+            Eliminar</button>
+        <button type="submit" class="btn" name="modificar">Modificar</button>
+    </div>
+
+
+  </fieldset>
+</form>
+
+{% endblock container %}

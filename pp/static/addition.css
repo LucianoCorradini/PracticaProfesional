@@ -1,0 +1,40 @@
+/*
+
+by @bblanque
+
+*/
+
+#hotel_title {
+    font-size: 30px;
+    color: wheat;
+    padding: 10px;
+    font-family: Verdana, sans-serif;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.9);
+}
+
+#hotel_nav > ul > li > a{
+    color: wheat;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
+
+}
+
+#hotel_nav > ul > li > a:hover{
+    color: white;
+}
+
+#hotel_nav > ul > li > a:active{
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.9);
+}
+
+.b_lightgray{
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.b_lavender{
+    background-color: lavender;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: slategray;
+}

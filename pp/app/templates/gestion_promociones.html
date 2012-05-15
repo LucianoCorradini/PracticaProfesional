@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="well form-horizontal" method="post" action="/reservar">
+    {% csrf_token %}
+    <fieldset>
+    <legend>Gestión de promociones</legend>
+
+    <div class="control-group">
+    <label class="control-label" for="promocion"> promocion</label>
+    <div class="controls">
+        <input id="promocion" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="tipo_promocion">Tipo de Promoción</label>
+    <div class="controls">
+        <select class="input-xlarge" id="tipo_promocion">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="descuento"> Descuento </label>
+    <div class="controls">
+    <div class="input-append">
+        <input id="descuento" class="span1" size="4" type="text">
+        <span class="add-on">%</span>
+    </div>
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="servicio"> Servicio asociado </label>
+    <div class="controls">
+        <input id="servicio" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="desde"> Desde </label>
+    <div class="controls">
+        <input id="desde" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="control-group">
+    <label class="control-label" for="hasta"> Hasta </label>
+    <div class="controls">
+        <input id="hasta" class="span1" size="16" type="text">
+    </div>
+    </div>
+
+    <div class="form-actions btn-group">
+        <button type="submit" class="btn btn-primary" name="commit" value="agregar">Agregar</button>
+        <button type="submit" class="btn btn-info" name="commit" value="buscar">
+            Buscar</button>
+    </div>
+
+
+
+    <legend>Promociones Encontradas</legend>
+    <div class="control-group ">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Promoción</th>
+                <th>Tipo</th>
+                <th>Descuento</th>
+                <th>Servicio</th>
+                <th>Desde</th>
+                <th>Hasta</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+{#falta agregar ejemplares de servicios/servicios fisicos (no tipos)#}
+
+    <div class="form-actions btn-group">
+        <button type="submit" class="btn btn-warning" name="commit" value="imprimir">
+            Imprimir Promociones</button>
+        <button class="btn btn-danger" name="commit" value="eliminar">Eliminar</button>
+        <button type="submit" class="btn btn-warning" name="commit" value="modificar">
+            Modificar</button>
+    </div>
+
+    </fieldset>
+</form>
+{% endblock container %}
