@@ -7,72 +7,67 @@
 
     <title>Hotel</title>
 
-    <!-- Styles -->
-
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="{{ STATIC_URL }}bootstrap/css/datepicker.css" rel="stylesheet"/>
+    <!-- Twitter Bootstrap css -->
+    
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/datepicker.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}addition.css" rel="stylesheet"/>
 
-    <!-- Icons -->
-    <link rel="shortcut icon" href="{{ STATIC_URL }}bootstrap/ico/favicon.ico"/>
+    <!-- Twitter Bootstrap images -->
+    <link rel="shortcut icon" href="{{ STATIC_URL }}bootstrap/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
-        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-144-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-114-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-72-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed"
-        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-57-precomposed.png"/>
+        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" 
+        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" 
+        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" 
+        href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-57-precomposed.png">
 
     <!-- JavaScript -->
     <script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js" type="text/javascript">
     </script>
     <script src="{{ STATIC_URL }}js/underscore-min.js" type="text/javascript">
     </script>
+    <script src="{{ STATIC_URL }}js/render.js" type="text/javascript">
+    </script>
+
+    <!-- Twitter Bootstrap JavaScript -->
     <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js" type="text/javascript">
     </script>
     <script src="{{ STATIC_URL }}bootstrap/js/dropdown.js" type="text/javascript">
     </script>
     <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-datepicker.js"
         type="text/javascript"> </script>
-    {% block extrastyle %}{% endblock %}
-    {% block backbone %}{% endblock %}
+
     {% block extrahead %}{% endblock %}
 
   </head>
 
-  <body class = "b_lightgray">
-    <div class="navbar">
+<!-- NAV BAR -->
+
+  <div class="navbar">
     <div class="navbar-inner">
-    <div class="container" id="hotel_nav">
-    <ul class="nav">
-    <h1 class="nav-header" id="hotel_title">Hotel</h1>
-    <li><a href="/">Inicio</a></li>
-    <li><a href="#">Quienes Somos</a></li>
-    <li><a href="#">Galeria</a></li>
-    <li><a href="#">Contacto</a></li>
+      <div class="container">
+
+<ul class="nav">
+    <li class="active"><a href="/">Inicio</a></li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Reservas<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/reservar">Reservar</a></li>
-            <li><a href="/buscar_reserva">Consultar Reserva</a></li>
-        </ul>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Reservas<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="/reservas/nuevo">Reservar</a></li>
+        <li><a href="/reservas/consultar">Consultar Reserva</a></li>
+      {% if user.is_staff() %}
+        <li><a href="/reservas/">Buscar Reservas</a></li>
+        <li><a href="/reservas/checkin/">Ingresos del día</a></li>
+        <li><a href="/reservas/checkout/">Egresos del día</a></li>
+      {% endif %}
+      </ul>
     </li>
-  {% if user.is_staff %}
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Administración del hotel<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/gestion_habitaciones">Gestión de habitaciones</a></li>
-            <li><a href="/gestion_servicios">Gestión de servicios</a></li>
-            <li><a href="/gestion_promociones">Gestión de promociones</a></li>
-            <li><a href="/gestion_paquetes">Gestión de paquetes</a></li>
-        </ul>
-    </li>
+  {% if user.is_superuser() %}
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Administración de usuarios<b class="caret"></b>
@@ -85,32 +80,24 @@
   {% endif %}
 </ul>
 
-<ul class=" pull-right ">
+<ul class="nav pull-right">
   {% if user.is_authenticated %}
-  <form action="{% url 'django.contrib.auth.views.logout' %}"
-        method="post" class="navbar-form  pull-left">
-    <p>Bienvenido, {# user #}</p>
-    <button class="btn btn-inverse" value="submit" style="position:relative; top: 3px">Desconectar</button>
-  </form>
+    <li> {{ user.username }} <a href="/logout/">Desconectar</a></li>
   {% else %}
-    <form action="{% url 'django.contrib.auth.views.login' %}"
-        method="post" class="navbar-form  pull-left">
-        {% csrf_token %}
-        <input type="text" name="Usuario"
-            class="span2" placeholder="Usuario"/>
-        <input type="password" name="Contraseña"
-            class="span2" placeholder="Contraseña"/>
-        <input type="hidden" name="next" value="#" />
-        <button class="btn btn-primary" value="submit" style="position:relative; top: 3px">Conectar</button>
+    <form action="/login/" method="post" class="navbar-form pull-left">
+      {% csrf_token %}
+      <input type="text" name="username" class="span2" placeholder="Usuario"/>
+      <input type="password" name="password" class="span2" placeholder="Contraseña"/>
+      <button type="submit" class="btn" value="Conectar"/>
     </form>
   {% endif %}
 </ul>
 
-<!-- END NAV VAR -->
-
-        </div>
       </div>
     </div>
+  </div>
+
+<!-- END NAV BAR -->
 
     <div class="container">
       {% block container %}
@@ -121,8 +108,8 @@
   </body>
 
     <script type="text/javascript">
-        $('.dropdown-toggle').dropdown();
-        $('.date').datepicker();
+      $('.dropdown-toggle').dropdown();
+      $('.date').datepicker();
     </script>
 </html>
 
