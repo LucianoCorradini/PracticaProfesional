@@ -2,56 +2,56 @@
 
 {% block container %}
 
-<form class="well form-horizontal" method="post" action="/datos_personales">
-    {% csrf_token %}
+<form class="well form-horizontal" method="post" action="/reservas/nueva/pag3">
+  {% csrf_token %}
   <fieldset>
     <legend>Datos Personales</legend>
     <div class="control-group">
 
       <label class="control-label" for="tipo_documento">Documento</label>
       <div class="controls">
-        <select class="span1" id="tipo_documento">
-            <option> DNI </option>
-            <option> LC </option>
-            <option> LE </option>
-            <option> CI </option>
+        <select class="span1" id="tipo_documento" name="tipo_documento">
+          {% for x in TIPO_DOCUMENTO %}
+            <option value="{{ x }}"> x </option>
+          {% endfor %}
         </select>
-        <input class="span2" name="documento", id="documento"/>
+        <input class="span2" name="numero_documento", id="documento"/>
       </div>
     </div>
 
     <div class="control-group">
       <label class="control-label" for="email"> Correo electrónico </label>
       <div class="controls">
-        <input id="email" class="span2" size="16" type="text">
+        <input id="email" class="span2" name="email" type="text">
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="telefono"> Telefono </label>
+      <label class="control-label" for="telefono1"> Telefono </label>
       <div class="controls">
-        <input id="telefono" class="span2" size="16" type="text">
+        <input id="telefono1" class="span2" name="telefono1" type="text">
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="direccion"> Dirección </label>
+      <label class="control-label" for="telefono2"> Telefono alt. </label>
       <div class="controls">
-        <input id="direccion" class="span3" size="16" type="text">
+        <input id="telefono2" class="span2" name="telefono2" type="text">
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="localidad"> Localidad </label>
+      <label class="control-label" for="domicilio"> Domicilio </label>
       <div class="controls">
-        <input id="localidad" class="span3" size="16" type="text">
+        <input id="domicilio" class="span2" type="text">
       </div>
     </div>
 
     <div class="form-actions btn-group">
-        <button class="btn" name="commit" value="cancelar">Cancelar</button>
         <button type="submit" class="btn btn-primary" name="commit" value="continuar">
             Continuar</button>
+        <button class="btn" name="commit" value="cancelar">
+            Cancelar</button>
     </div>
 
   </fieldset>
