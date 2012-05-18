@@ -24,10 +24,12 @@ urlpatterns = patterns('',
     url(r'^reservas$', app.reservas), # busqueda y listado
     url(r'^reservas/consultar$', app.reservas_consultar), # busqueda por codigo
 
-    url(r'^reservas/(\d+)$', app.reservas_id), # detalle, edit, delete
+    url(r'^reservas/(\d+)$', app.reservas_details), # detalle, edit, delete
 
     url(r'^habitaciones$', app.habitaciones), # busqueda y listado
-    url(r'^habitaciones/(\d+)$', app.habitaciones_id), # detalle, edit, delete
+    url(r'^habitaciones/nuevo$', app.habitaciones_nuevo), # busqueda y listado
+    url(r'^habitaciones/(\d+)$', app.habitaciones_details),
+        # detalle, edit, delete
 
     url(r'^admin/', include(admin.site.urls))
 )
