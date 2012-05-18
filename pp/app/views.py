@@ -6,6 +6,7 @@ import json
 from django.contrib.auth.models import User, Group
 from app.models import Reserva, Habitacion, TipoHabitacion, Persona
 
+
 def assert_or_404(b):
     if not b:
         raise Http404
