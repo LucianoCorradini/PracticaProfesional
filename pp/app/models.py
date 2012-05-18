@@ -12,7 +12,7 @@ ESTADOS_RESERVA = {
 
 DEFAULT_ESTADO_RESERVA = 'En Espera'
 
-ENUMERADO_ESTADOS_RESERVA = [(x,x) for x in ESTADOS_RESERVA.keys()]
+ENUMERADO_ESTADOS_RESERVA = [(x, x) for x in ESTADOS_RESERVA.keys()]
 
 TIPOS_DOCUMENTO = (
     ('DNI', 'DNI'),
@@ -23,7 +23,8 @@ TIPOS_DOCUMENTO = (
 
 
 class Persona(models.Model):
-    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, null=True, blank=True,
+                             on_delete=models.SET_NULL)
     apellido = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     tipo_documento = models.CharField(max_length=5, choices=TIPOS_DOCUMENTO)
@@ -38,13 +39,6 @@ class Persona(models.Model):
 
     def __unicode__(self):
         return u'%s, %s.' % (self.apellido, self.nombre)
-
-
-class SolicitudReserva(models.Model):
-    reserva = models.ForeignKey(Reserva, related_name='solicitudes')
-    turno = model.ForeignKey(TurnoReservable, related_name='solicitudes')
-    inicio = models.DateTimeField()
-    fin = models.DateTimeField()
 
 
 class Reserva(models.Model):
@@ -64,7 +58,23 @@ class Reserva(models.Model):
             return True
         else:
             return False
-        
+
+
+class Turno(models.Model):
+    tiempo_turno = models.DateTimeField()
+    minimo = models.PositiveIntegerField()
+    maximo = models.PositiveIntegerField()
+
+#    def __unicode__(self):
+#        return unicode(self.id)
+
+
+class SolicitudReserva(models.Model):
+    reserva = models.ForeignKey(Reserva, related_name='solicitudes')
+    turno = models.ForeignKey(Turno, related_name='solicitudes')
+    inicio = models.DateTimeField()
+    fin = models.DateTimeField()
+
 
 class TipoHabitacion(models.Model):
     nombre = models.CharField(max_length=50)
@@ -103,20 +113,12 @@ class TipoServicio(models.Model):
 
 class Servicio(models.Model):
     numero = models.PositiveIntegerField()
-    estado = models.CharField(max_length=1, choices=ESTADOS_SERVICIO)
+#    estado = models.CharField(max_length=1, choices=ESTADOS_SERVICIO)
+    estado = models.CharField(max_length=30)
     tipo = models.ForeignKey(TipoServicio)
 
     def __unicode__(self):
         return u"%s %s" % (self.tipo.nombre, self.numero)
-
-
-class Turno(models.Model):
-    tiempo_turno = models.DateTimeField()
-    minimo = models.PositiveIntegerField()
-    maximo = models.PositiveIntegerField()
-
-#    def __unicode__(self):
-#        return unicode(self.id)
 
 
 class TurnoServicio(Turno):

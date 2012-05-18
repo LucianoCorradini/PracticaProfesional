@@ -14,8 +14,8 @@ urlpatterns = patterns('',
     url(r'^index$', app.index),
 
     # user login / logout
-    url(r'^login$', account.login),
-    url(r'^logout$', account.logout),
+    url(r'^login$', accounts.login),
+    url(r'^logout$', accounts.logout),
 
     url(r'^reservas/nueva/pag1$', app.reservas_nueva_1), # tipo habitacion
     url(r'^reservas/nueva/pag2$', app.reservas_nueva_2), # servicios

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import transaction
 import json
-from accounts.models import User, Group
+from django.contrib.auth.models import User, Group
 from app.models import Reserva, Habitacion, TipoHabitacion, Persona
 
 def assert_or_404(b):
