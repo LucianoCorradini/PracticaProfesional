@@ -16,6 +16,28 @@ def assert_or_404(b):
 def index(request):
     return render(request, "index.html")
 
+
+def reservas_nueva_1(request):
+    return render(request, "reservas_nueva_pag1.html")
+
+def reservas_nueva_2(request):
+    return render(request, "reservas_nueva_pag2.html")
+
+def reservas_nueva_3(request):
+    return render(request, "reservas_nueva_pag3.html")
+
+
+def reservas(request):
+    assert_or_404(user.is_staff)
+    return render()
+
+
+
+
+
+
+
+
 ##########################
 #- UI Registrar Reserva -#
 ##########################

@@ -10,8 +10,8 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    url(r'^$', views.index),
-    url(r'^index$', views.index),
+    url(r'^$', app.index),
+    url(r'^index$', app.index),
 
     # user login / logout
     url(r'^login$', account.login),
@@ -24,7 +24,10 @@ urlpatterns = patterns('',
     url(r'^reservas$', app.reservas), # busqueda y listado
     url(r'^reservas/consultar$', app.reservas_consultar), # busqueda por codigo
 
-    url(r'^reservas/(\d+)$', app.reservas_id), # ver y modificar
+    url(r'^reservas/(\d+)$', app.reservas_id), # detalle, edit, delete
+
+    url(r'^habitaciones$', app.habitaciones), # busqueda y listado
+    url(r'^habitaciones/(\d+)$', app.habitaciones_id), # detalle, edit, delete
 
     url(r'^admin/', include(admin.site.urls))
 )
