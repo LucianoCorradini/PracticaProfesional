@@ -1,0 +1,15 @@
+user_id,apellido,nombre,tipo_documento,numero_documento,fecha_nacimiento,empresa,email,telefono1,telefono2\n
+,'González','Sofía','DNI',34567222,'12/12/1988',,'gsofia@yahoo.com.ar',467823454,1556978222145\n
+,'Rodríguez','Benjamín','DNI',22549123,'22/04/1975','Ford','benja_rodriguez@gmail.com',455912331,1159584446478
+,'Gómez','Santiago','DNI',12344966,'30/11/1955',,'gsantiago@unlu.edu.ar',496874920,1159682829333
+,'Fernández','Bautista','DNI',15223196,'15/10/1960','Google','fbautista@google.com',495868765,1151595832001
+,'López','Julieta','DNI',24001027,'27/10/1978',,'lopez_juli@hotmail.com',496868686,
+,'Martínez','Jazmín','DNI',27123009,'29/08/1982',,'jazminmartinez@gmail.com',400300195,
+,'Pérez','Camila','DNI',29556001,'05/05/1984','Pepperoni S.A.','camu_perez@aol.com',459687666,1115968474722
+,'García','Agustín','LE',10345215,'07/07/1910',,'agustineg@hotmail.com',497088001,
+,'Sánchez','Lucas','DNI',35000159,'10/10/1990',,'slucas1990@hotmail.com',486767655,
+,'Romero','Delfina','DNI',19234906,'16/06/1965',,'romerodelfina@gmail.com',439201110,
+,'Sosa','Valentina','DNI',10334012,'08/03/1946','Ibaraki Foods','vsosa@ibaraki.com.ar',407998988,1115958382227
+,'Álvarez','Mateo','DNI',19337890,'14/01/1966',,'mat_alvarez@yahoo.com.ar',422203911,
+,'Torres','Mariana','DNI',26564198,'15/02/1980',,'torresmaru@gmail.com',417808654,
+,'Ruiz','Samuel',,11045697,'02/06/1950',,'ruizsam@zoho.com',445069771,
