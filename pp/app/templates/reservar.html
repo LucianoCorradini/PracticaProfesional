@@ -8,19 +8,18 @@
     <legend>Seleccionar caracteristicas de la habitacion</legend>
 
     <div class="control-group">
-    <label class="control-label" for="tipo_habitacion">Tipo de Habitación</label>
+    <label class="control-label" for="tipo_habitacion">Habitación</label>
     <div class="controls">
         <select class="input-xlarge" id="tipo_habitacion">
-            <option> Suite Imperial </option>
-            <option> Habitación doble matrimonial </option>
-            <option> Habitación doble, 2 camas </option>
-            <option> Habitación cuadruple, familiar </option>
+          {% for x in tipo_habitaciones %}
+            <option value="{{x}}">{{x}}</option>
+          {% endfor %}
         </select>
     </div>
     </div>
 
     <div class="control-group">
-    <label class="control-label" for="cantidad"> Cantidad de Personas</label>
+    <label class="control-label" for="cantidad"> Cantidad de personas </label>
     <div class="controls">
         <select class="span1" id="cantidad">
             <option> 1 </option>
@@ -59,9 +58,9 @@
     </div>
 
     <div class="form-actions btn-group">
-        <button class="btn" name="commit" value="cancelar">Cancelar</button>
         <button type="submit" class="btn btn-primary" name="commit" value="continuar">
             Continuar</button>
+        <button class="btn" name="commit" value="cancelar">Cancelar</button>
     </div>
 
   </fieldset>
