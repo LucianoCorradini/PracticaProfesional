@@ -15,11 +15,11 @@ def login_view(request):
     password = request.POST['password']
     user = authenticate(username=username, password=password)
     if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect("/")  # success!
-            else:
-                return redirect("/")  # disabled account!
+        if user.is_active:
+            login(request, user)
+            return redirect("/")  # success!
+        else:
+            return redirect("/")  # disabled account!
     else:
         return redirect("/")  # invalid login!
 

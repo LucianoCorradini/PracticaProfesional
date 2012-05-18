@@ -47,7 +47,7 @@ class TipoHabitacion(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(default='', null=True, blank=True)
     capacidad = models.PositiveIntegerField(default=2)
-    imagen_url = models.SlugField(null=True, blank=True)
+    imagen_url = models.SlugField(default='../static/images/ImagenNoDisponible.gif')
     activo = models.BooleanField(default=True)
 
     def __unicode__(self):
