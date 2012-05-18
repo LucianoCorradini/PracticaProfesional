@@ -82,7 +82,13 @@ connection = sqlite3.connect("../db.sqlite3")
 cursor = connection.cursor()
 #acá agregar tablas
 csv2db(cursor, 'persona')
-
+csv2db(cursor, 'tipohabitacion')
+csv2db(cursor, 'habitacion')
+csv2db(cursor, 'turno')
+csv2db(cursor, 'turnohabitacion')
+csv2db(cursor, 'reserva')
+csv2db(cursor, 'solicitudreserva')
+csv2db(cursor, 'detallereserva')
 
 cursor.close()
 connection.commit()

@@ -2,13 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 ESTADOS_RESERVA = {
-    'en espera': ['atendido','cancelado'],
-    'atendido': ['cancelado','confirmado'],
+    'en espera': ['atendido', 'cancelado'],
+    'atendido': ['cancelado', 'confirmado'],
     'cancelado': [],
-    'confirmado': ['cancelado','iniciado'],
-    'iniciado': ['finalizado','arribado','cancelado'],
-    'arribado': ['finalizado','sobrepasado'],
-    'sobrepasado': ['finalizado']
+    'confirmado': ['cancelado', 'iniciado'],
+    'iniciado': ['finalizado', 'arribado', 'cancelado'],
+    'arribado': ['finalizado', 'sobrepasado'],
+    'sobrepasado': ['finalizado'],
     'finalizado': [],
 }
 
@@ -42,11 +42,12 @@ class Persona(models.Model):
     def __unicode__(self):
         return u'%s, %s.' % (self.apellido, self.nombre)
 
+
 class TipoHabitacion(models.Model):
     nombre = models.CharField(max_length=50)
-    descripcion = models.TextField(default='')
+    descripcion = models.TextField(default='', null=True, blank=True)
     capacidad = models.PositiveIntegerField(default=2)
-    imagen_url = models.SlugField()
+    imagen_url = models.SlugField(null=True, blank=True)
     activo = models.BooleanField(default=True)
 
     def __unicode__(self):
@@ -62,17 +63,17 @@ class Habitacion(models.Model):
 
 
 class Turno(models.Model):
-    tiempo_turno = models.PositiveIntegerField() # en minutos
-    entreturno = models.PositiveIntegerField(default=0) # en minutos
-    minimo = models.PositiveIntegerField(null=True) # en cantidad de turnos
-    maximo = models.PositiveIntegerField(null=True) # en cantidad de turnos
-    precio = models.DecimalField(max_digits=10, decimal_places=2) # por turno
+    tiempo_turno = models.PositiveIntegerField()  # en minutos
+    entreturno = models.PositiveIntegerField(default=0)  # en minutos
+    minimo = models.PositiveIntegerField(null=True, blank=True)  # en cantidad de turnos
+    maximo = models.PositiveIntegerField(null=True, blank=True)  # en cantidad de turnos
+    precio = models.DecimalField(max_digits=10, decimal_places=2)  # por turno
     tipo_habitacion = models.ForeignKey(TipoHabitacion)
 
 
 class TurnoHabitacion(models.Model):
-    habitacion = models.ForeignKey(Habitacion, related_name='turnos')
-    turno = models.ForeignKey(Turno, related_name='habitaciones')
+    habitacion = models.ForeignKey(Habitacion)
+    turno = models.ForeignKey(Turno)
 
 
 class Reserva(models.Model):
@@ -84,7 +85,7 @@ class Reserva(models.Model):
     creado = models.DateTimeField()
     monto = models.DecimalField(max_digits=10, decimal_places=2)
     pagado = models.DecimalField(max_digits=10, decimal_places=2)
-    comentario = models.TextField()
+    comentario = models.TextField(null=True, blank=True)
 
     def set_estado(self, estado):
         if estado in ESTADOS_RESERVA[self.estado]:
@@ -93,18 +94,17 @@ class Reserva(models.Model):
         else:
             return False
 
-        
+
 class SolicitudReserva(models.Model):
-    reserva = models.ForeignKey(Reserva, related_name='solicitudes')
-    turno = model.ForeignKey(Turno, related_name='solicitudes')
+    reserva = models.ForeignKey(Reserva)
+    turno = models.ForeignKey(Turno)
     inicio = models.DateTimeField()
     fin = models.DateTimeField()
 
 
 class DetalleReserva(models.Model):
-    reserva = models.ForeignKey(Reserva, related_name='solicitudes')
-    turno_habitacion = model.ForeignKey(TurnoHabitacion,
-        related_name='reservas')
+    reserva = models.ForeignKey(Reserva)
+    turno_habitacion = models.ForeignKey(TurnoHabitacion)
     inicio = models.DateTimeField()
     fin = models.DateTimeField()
     monto = models.DecimalField(max_digits=10, decimal_places=2)
