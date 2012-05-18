@@ -18,7 +18,7 @@ bq. $ sudo apt-get install python-pip
 
 * *Instalar virtual env* (entorno de desarrollo virtual)
 
-bq. $ pip install virtualenv
+bq. $ sudo pip install virtualenv
 
 h2. Instalación de Git (repositorio online)
 
