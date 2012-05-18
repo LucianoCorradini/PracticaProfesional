@@ -9,6 +9,14 @@ from sys import exit
 #las PKs y FKs tienen _id detrás.
 
 
+#ejemplo de campo válido para la tabla persona
+#en db muestra:
+#1|1|Blanque|Brian|DNI|20000000|2000-10-10||bblanque@mail.com|46237280||1
+#en .csv:
+#1,1,'Blanque','Brian','DNI',20000000,'2000-10-10','bblanque@mail.com',46237280,
+#,1 -> linea única
+
+
 class UTF8Recoder:
     """
     Iterator that reads an encoded stream and reencodes the input to UTF-8
@@ -56,8 +64,9 @@ def csv2db(cursor, tablename):
                     r.append(data)
 #            print(row, r)
             rowString = ', '.join(r)
-#            print(("INSERT INTO app_%s (%s) VALUES (%s)" %
-#                            (tablename, fieldnamesString, rowString)))
+            print(("""INSERT INTO app_%s (%s) VALUES (%s)
+                      -----------------------------------\n""" %
+                            (tablename, fieldnamesString, rowString)))
             cursor.execute(("INSERT INTO app_%s (%s) VALUES (%s)" %
                             (tablename, fieldnamesString, rowString)))
         return None

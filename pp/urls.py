@@ -1,33 +1,36 @@
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.views import login, logout
 from django.views.generic.simple import direct_to_template
 from django.conf.urls.defaults import patterns, include, url
-from app import views
+
+from app import views as app
+from accounts import views as accounts
 
 from django.contrib import admin
 admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    url(r'^$', views.index),
+    url(r'^$', app.index),
+    url(r'^index$', app.index),
 
-    url(r'^reservar$', views.reservar),
-    url(r'^datos_personales$', views.datos_personales),
-    url(r'^seleccion_servicios$', views.seleccion_servicios),
-    url(r'^seleccion_paquetes$', views.seleccion_paquetes),
-    url(r'^habitaciones_disponibles$', views.habitaciones_disponibles),
+    # user login / logout
+    url(r'^login$', accounts.login),
+    url(r'^logout$', accounts.logout),
 
-    url(r'^buscar_reserva$', views.buscar_reserva),
-    url(r'^servicios_reserva$', views.servicios_reserva),
+    url(r'^reservas/nueva/pag1$', app.reservas_nueva_1), # tipo habitacion
+    url(r'^reservas/nueva/pag2$', app.reservas_nueva_2), # servicios
+    url(r'^reservas/nueva/pag3$', app.reservas_nueva_3), # datos personales
 
-    url(r'^gestion_habitaciones$', views.gestion_habitaciones),
-    url(r'^gestion_servicios$', views.gestion_servicios),
-    url(r'^gestion_promociones$', views.gestion_promociones),
-    url(r'^gestion_paquetes$', views.gestion_paquetes),
+    url(r'^reservas$', app.reservas), # busqueda y listado
+    url(r'^reservas/consultar$', app.reservas_consultar), # busqueda por codigo
 
-    url(r'login/$', 'django.contrib.auth.views.login'),
-    url(r'logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^reservas/(\d+)$', app.reservas_details), # detalle, edit, delete
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^habitaciones$', app.habitaciones), # busqueda y listado
+    url(r'^habitaciones/nuevo$', app.habitaciones_nuevo), # busqueda y listado
+    url(r'^habitaciones/(\d+)$', app.habitaciones_details),
+        # detalle, edit, delete
+
+    url(r'^admin/', include(admin.site.urls))
 )
 

@@ -1,20 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-ESTADOS_RESERVA = (
-    ('A', 'Activa'),
-    ('R', 'Rechazada'),
-    ('E', 'En Espera'),
-    ('X', 'En Curso'),
-    ('F', 'Finalizada'),
-    ('C', 'Completada'),
-)
+ESTADOS_RESERVA = {
+    'En Espera': ['Atendida','Cancelada'],
+    'Atendida': ['Cancelada','Confirmada'],
+    'Cancelada': [],
+    'Confirmada': ['Cancelada','En Curso','Finalizada'],
+    'En Curso': ['Finalizada'],
+    'Finalizada': [],
+}
 
-ESTADOS_SERVICIO = (
-    ('D', 'Disponible'),
-    ('N', 'No Disponible'),
-    ('U', 'En Uso'),
-)
+DEFAULT_ESTADO_RESERVA = 'En Espera'
+
+ENUMERADO_ESTADOS_RESERVA = [(x, x) for x in ESTADOS_RESERVA.keys()]
 
 TIPOS_DOCUMENTO = (
     ('DNI', 'DNI'),
@@ -37,25 +35,15 @@ class Persona(models.Model):
     telefono1 = models.CharField(max_length=20, verbose_name='Telefono')
     telefono2 = models.CharField(max_length=20, null=True, blank=True,
                                  verbose_name='Tel. alternativo')
+    activo = models.BooleanField(default=True)
 
     def __unicode__(self):
         return u'%s, %s.' % (self.apellido, self.nombre)
 
 
-class SolicitudReserva(models.Model):
-    cliente = models.ForeignKey(Persona, on_delete=models.PROTECT)
-    inicio = models.DateTimeField()
-    fin = models.DateTimeField()
-    comentario = models.TextField()
-
-#    def __unicode__(self):
-#        return (self.cliente.__unicode__() +
-#               u" , Solicitud %s" % (self.id))
-
-
 class Reserva(models.Model):
-    solicitud = models.ForeignKey(SolicitudReserva, on_delete=models.PROTECT)
-    estado = models.CharField(max_length=1, choices=ESTADOS_RESERVA)
+    cliente = models.ForeignKey(Persona, on_delete=models.PROTECT)
+    estado = models.CharField(max_length=1, choices=ENUMERADO_ESTADOS_RESERVA)
     empresa = models.BooleanField()
     inicio = models.DateTimeField()
     fin = models.DateTimeField()
@@ -64,9 +52,28 @@ class Reserva(models.Model):
     pagado = models.DecimalField(max_digits=10, decimal_places=2)
     comentario = models.TextField()
 
+    def set_estado(self, estado):
+        if estado in ESTADOS_RESERVA[self.estado]:
+            self.estado = estado
+            return True
+        else:
+            return False
+
+
+class Turno(models.Model):
+    tiempo_turno = models.DateTimeField()
+    minimo = models.PositiveIntegerField()
+    maximo = models.PositiveIntegerField()
+
 #    def __unicode__(self):
-#        return (self.solicitud.cliente.__unicode__() +
-#               u" , Reserva %s" % (self.id))
+#        return unicode(self.id)
+
+
+class SolicitudReserva(models.Model):
+    reserva = models.ForeignKey(Reserva, related_name='solicitudes')
+    turno = models.ForeignKey(Turno, related_name='solicitudes')
+    inicio = models.DateTimeField()
+    fin = models.DateTimeField()
 
 
 class TipoHabitacion(models.Model):
@@ -106,20 +113,12 @@ class TipoServicio(models.Model):
 
 class Servicio(models.Model):
     numero = models.PositiveIntegerField()
-    estado = models.CharField(max_length=1, choices=ESTADOS_SERVICIO)
+#    estado = models.CharField(max_length=1, choices=ESTADOS_SERVICIO)
+    estado = models.CharField(max_length=30)
     tipo = models.ForeignKey(TipoServicio)
 
     def __unicode__(self):
         return u"%s %s" % (self.tipo.nombre, self.numero)
-
-
-class Turno(models.Model):
-    tiempo_turno = models.DateTimeField()
-    minimo = models.PositiveIntegerField()
-    maximo = models.PositiveIntegerField()
-
-#    def __unicode__(self):
-#        return unicode(self.id)
 
 
 class TurnoServicio(Turno):
