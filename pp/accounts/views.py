@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, Group
+from django.contrib.auth import authenticate, login, logout
 
 
 def assert_or_404(b):
@@ -9,16 +10,21 @@ def assert_or_404(b):
         return b
 
 
-def login(request):
+def login_view(request):
     username = request.POST['username']
     password = request.POST['password']
-    
-    # TODO: logiar usuario y pass.
-    return redirect("/")
+    user = authenticate(username=username, password=password)
+    if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect("/")  # success!
+            else:
+                return redirect("/")  # disabled account!
+    else:
+        return redirect("/")  # invalid login!
 
-
-def logout(request):
-    # TODO: deslogiar usuario y pass.
+def logout_view(request):
+    logout(request)
     return redirect("/")
 
 
