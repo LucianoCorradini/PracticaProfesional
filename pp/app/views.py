@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db import transaction
 import json
 from django.contrib.auth.models import User, Group
-from app.models import Reserva, Habitacion, TipoHabitacion, Persona
+from app.models import Reserva, Habitacion, TipoHabitacion, Persona, TIPOS_DOCUMENTO
 
 
 def assert_or_404(b):
@@ -35,9 +35,10 @@ def reservas_nueva_1(request):
 def reservas_nueva_2(request):
     if request.method == 'GET':
         data = {
+            'TIPOS_DOCUMENTO': TIPOS_DOCUMENTO,
             'msgError': request.GET.get('msgError', None)
         }
-        return render(request, "reservas_nueva_pag2.html")
+        return render(request, "reservas_nueva_pag2.html", data)
     elif request.method == 'POST':
         # TODO
         return redirect('/reservas/nueva/pag3')

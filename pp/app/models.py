@@ -16,12 +16,9 @@ DEFAULT_ESTADO_RESERVA = 'en espera'
 
 ENUMERADO_ESTADOS_RESERVA = [(x, x) for x in ESTADOS_RESERVA.keys()]
 
-TIPOS_DOCUMENTO = (
-    ('DNI', 'DNI'),
-    ('LC', 'LC'),
-    ('LE', 'LE'),
-    ('CI', 'CI'),
-)
+TIPOS_DOCUMENTO = ('DNI', 'LC', 'LE', 'CI')
+
+ENUMERADO_TIPOS_DOCUMENTO = [(x, x) for x in TIPOS_DOCUMENTO]
 
 
 class Persona(models.Model):
@@ -29,7 +26,7 @@ class Persona(models.Model):
                              on_delete=models.SET_NULL)
     apellido = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
-    tipo_documento = models.CharField(max_length=5, choices=TIPOS_DOCUMENTO)
+    tipo_documento = models.CharField(max_length=5, choices=ENUMERADO_TIPOS_DOCUMENTO)
     numero_documento = models.PositiveIntegerField()
     fecha_nacimiento = models.DateField(null=True)
     empresa = models.CharField(max_length=50, null=True, blank=True)
