@@ -9,28 +9,33 @@
     <div class="control-group">
       <label class="control-label" for="codigo"> Código de reserva </label>
       <div class="controls">
-        <input id="codigo" class="span1" name="codigo" type="text">
+        <input id="codigo" class="span2" name="codigo" type="text">
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="tipo_documento"> Tipo de documento </label>
+      <label class="control-label" for="tipo_documento">Documento</label>
       <div class="controls">
-        <input id="tipo_documento" class="span1" name="tipo_documento" type="text">
+        <select class="span1" id="tipo_documento" name="tipo_documento">
+          {% for x in TIPO_DOCUMENTOS %}
+            <option value="{{ x }}"> x </option>
+          {% endfor %}
+        </select>
+        <input class="span2" id="documento" name="numero_documento"/>
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="numero_documento"> Número de documento </label>
       <div class="controls">
-        <input id="numero_documento" class="span1" name="numero_documento" type="text">
+        <input id="numero_documento" class="span2" name="numero_documento" type="text">
       </div>
     </div>
     <div class="form-actions btn-group">
-        <button type="commit" class="btn" name="retroceder">
-            Retroceder</button>
         <button type="commit" class="btn btn-primary" name="buscar">
-            Buscar</button>
+        Buscar</button>
+        <button type="commit" class="btn" name="retroceder">
+        Retroceder</button>
     </div>
-    
+
 
     </fieldset>
 </form>

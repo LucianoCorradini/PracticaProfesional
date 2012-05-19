@@ -15,8 +15,13 @@ def assert_or_404(b):
 
 
 def index(request):
-    # TODO
-    return render(request, "index.html")
+    data = {
+        'index_data_1': TipoHabitacion.objects.get(pk=1),
+        'index_data_2': TipoHabitacion.objects.get(pk=2),
+        'index_data_3': TipoHabitacion.objects.get(pk=3),
+        'msgError': request.GET.get('msgError', None)
+    }
+    return render(request, "index.html", data)
 
 
 def reservas_nueva_1(request):
