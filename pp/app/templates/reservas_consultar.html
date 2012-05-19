@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<form class="well form-horizontal" method="get" action="reservas/consultar">
+    {% csrf_token %}
+    <fieldset>
+    <legend>Consultar Reservas</legend>
+    <div class="control-group">
+      <label class="control-label" for="codigo"> Código de reserva </label>
+      <div class="controls">
+        <input id="codigo" class="span1" name="codigo" type="text">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="tipo_documento"> Tipo de documento </label>
+      <div class="controls">
+        <input id="tipo_documento" class="span1" name="tipo_documento" type="text">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="numero_documento"> Número de documento </label>
+      <div class="controls">
+        <input id="numero_documento" class="span1" name="numero_documento" type="text">
+      </div>
+    </div>
+    <div class="form-actions btn-group">
+        <button type="commit" class="btn" name="retroceder">
+            Retroceder</button>
+        <button type="commit" class="btn btn-primary" name="buscar">
+            Buscar</button>
+    </div>
+    
+
+    </fieldset>
+</form>
+
+{% endblock container %}
