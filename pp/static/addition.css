@@ -34,7 +34,20 @@ by @bblanque
 
 .b_lavender{
     background-color: lavender;
-    border-style: dashed;
+    border-style: solid;
     border-width: 1px;
     border-color: slategray;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.b_index{
+    padding: 10px;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background-color: Gainsboro;
 }
