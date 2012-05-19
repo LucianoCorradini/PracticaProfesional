@@ -31,7 +31,7 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=50)
     tipo_documento = models.CharField(max_length=5, choices=TIPOS_DOCUMENTO)
     numero_documento = models.PositiveIntegerField()
-    fecha_nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField(null=True)
     empresa = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField()
     telefono1 = models.CharField(max_length=20, verbose_name='Telefono')

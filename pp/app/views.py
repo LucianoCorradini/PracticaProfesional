@@ -28,19 +28,15 @@ def reservas_nueva_1(request):
         return render(request, "reservas_nueva_pag1.html", data)
     elif request.method == 'POST':
         try:
-            request.sesion['reserva'] = dict(
-                tipo_habitacion = TipoHabitacion.objects.get(pk=int(request.POST["tipo_habitacion"]))
-                cantidad_personas = int(request.POST["cantidad_personas"])
-                tipo_habitacion = request.POST["tipo_habitacion"]
-                comentario = request.POST["comentario"]
-            )
             return redirect('/reservas/nueva/pag2')
         except:
             return redirect('/reservas/nueva/pag1?msgError="Los datos ingresados son erroneos"')
 
 def reservas_nueva_2(request):
     if request.method == 'GET':
-        # TODO
+        data = {
+            'msgError': request.GET.get('msgError', None)
+        }
         return render(request, "reservas_nueva_pag2.html")
     elif request.method == 'POST':
         # TODO

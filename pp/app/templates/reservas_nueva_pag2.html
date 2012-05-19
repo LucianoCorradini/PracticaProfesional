@@ -5,9 +5,23 @@
 <form class="well form-horizontal" method="post" action="/reservas/nueva/pag2">
   {% csrf_token %}
   <fieldset>
-    <legend>Datos Personales</legend>
-    <div class="control-group">
+    <legend>Ingrese sus Datos Personales</legend>
 
+    <div class="control-group">
+      <label class="control-label" for="nombre"> Nombre </label>
+      <div class="controls">
+        <input id="nombre" class="span2" name="nombre" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="apellido"> Apellido </label>
+      <div class="controls">
+        <input id="apellido" class="span2" name="apellido" type="text">
+      </div>
+    </div>
+
+    <div class="control-group">
       <label class="control-label" for="tipo_documento">Documento</label>
       <div class="controls">
         <select class="span1" id="tipo_documento" name="tipo_documento">
