@@ -6,21 +6,14 @@
     Estos son algunos de los cuartos de hotel que ofrecemos actualmente
     </p>
     <div class="row-fluid">
+      {% for x in index_data %}
         <div class="span4 b_lavender" style="text-align:center;">
-             <h3>{{index_data_1.nombre}}</h3>
-             <img src="{{ STATIC_URL }}{{index_data_1.imagen_url}}" width="span4"/>
-             <p>{{index_data_1.descripcion}}</p>
+             <h3>{{x.nombre}}</h3>
+             <img src="{{ STATIC_URL }}{{x.imagen_url}}" width="span4"/>
+             <p>{{x.descripcion}}</p>
         </div>
-        <div class="span4 b_lavender" style="text-align:center;">
-             <h3>{{index_data_2.nombre}}</h3>
-             <img src="{{ STATIC_URL }}{{index_data_2.imagen_url}}" width="span4"/>
-             <p>{{index_data_2.descripcion}}</p>
-        </div>
-        <div class="span4 b_lavender" style="text-align:center;">
-             <h3>{{index_data_3.nombre}}</h3>
-             <img src="{{ STATIC_URL }}{{index_data_3.imagen_url}}" width="span4"/>
-             <p>{{index_data_3.descripcion}}</p>
-        </div>
+      {% endfor %}
+
     </div>
 </div>
 {% endblock container %}
