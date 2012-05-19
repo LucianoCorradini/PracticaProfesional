@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<div class="container-fluid">
+<form class="well form-horizontal" method="get" action="/reservas/nueva/pag3" >
+  <fieldset style="text-align:center;">
+    <legend>Solicitud de reserva confirmada</legend>
+
+    <div class="b_lavander" name="idsolicitud" id="idsolicitud">
+        <p>Código de solicitud: {{idsolicitud}}</p>
+        <p>El staff se comunicará con usted a la brevedad.<p>
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="commit" value="continuar">
+        Continuar</button>
+
+  </fieldset>
+</form>
+</div>
+{% endblock %}

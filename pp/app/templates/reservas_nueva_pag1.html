@@ -2,6 +2,7 @@
 
 {% block container %}
 
+<div class="container-fluid">
 <form class="well form-horizontal" method="post" action="/reservas/nueva/pag1">
   {% csrf_token %}
   <fieldset>
@@ -71,5 +72,6 @@
 
   </fieldset>
 </form>
+</div>
 {% endblock container %}
 

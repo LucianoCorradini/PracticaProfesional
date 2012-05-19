@@ -8,7 +8,7 @@
     <title>Hotel</title>
 
     <!-- Twitter Bootstrap css -->
-    
+
     <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}bootstrap/css/datepicker.css" rel="stylesheet">
@@ -18,11 +18,11 @@
     <link rel="shortcut icon" href="{{ STATIC_URL }}bootstrap/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
         href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" 
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
         href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" 
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
         href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" 
+    <link rel="apple-touch-icon-precomposed"
         href="{{ STATIC_URL }}bootstrap/ico/apple-touch-icon-57-precomposed.png">
 
     <!-- JavaScript -->
@@ -82,9 +82,9 @@
 
 <ul class="nav pull-right">
   {% if user.is_authenticated %}
-    <li> {{ user.username }} <a href="/logout/">Desconectar</a></li>
+    <li> {{ user.username }} <a href="/logout">Desconectar</a></li>
   {% else %}
-    <form action="/login/" method="post" class="navbar-form pull-left">
+    <form action="/login" method="post" class="navbar-form pull-left">
       {% csrf_token %}
       <input type="text" name="username" class="span2" placeholder="Usuario"/>
       <input type="password" name="password" class="span2" placeholder="Contraseña"/>

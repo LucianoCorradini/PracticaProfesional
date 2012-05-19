@@ -47,11 +47,12 @@ def reservas_nueva_2(request):
 
 def reservas_nueva_3(request):
     if request.method == 'GET':
-        # TODO
+#        data = {
+#            'id_reserva':
+#            'msgError': request.GET.get('msgError', None)
+#        }
         return render(request, "reservas_nueva_pag3.html")
-    elif request.method == 'POST':
-        # TODO
-        return redirect('/index')
+
 
 
 def reservas(request):

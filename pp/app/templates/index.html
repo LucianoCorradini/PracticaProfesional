@@ -9,7 +9,9 @@
       {% for x in index_data %}
         <div class="span4 b_lavender" style="text-align:center;">
              <h3>{{x.nombre}}</h3>
-             <img src="{{ STATIC_URL }}{{x.imagen_url}}" width="span4"/>
+             <a href="/reservas/nueva/pag1?hab={{x.id}}">
+                 <img src="{{ STATIC_URL }}{{x.imagen_url}}" width="span4"/>
+             </a>
              <p>{{x.descripcion}}</p>
         </div>
       {% endfor %}
