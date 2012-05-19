@@ -55,26 +55,27 @@
     <li class="active"><a href="/">Inicio</a></li>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Reservas<b class="caret"></b>
+        Reservas<b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="/reservas/nuevo">Reservar</a></li>
+        <li><a href="/reservas/nueva/pag1">Solicitar Reserva</a></li>
         <li><a href="/reservas/consultar">Consultar Reserva</a></li>
-      {% if user.is_staff() %}
+      {% if user.is_staff %}
         <li><a href="/reservas/">Buscar Reservas</a></li>
         <li><a href="/reservas/checkin/">Ingresos del día</a></li>
         <li><a href="/reservas/checkout/">Egresos del día</a></li>
       {% endif %}
       </ul>
     </li>
-  {% if user.is_superuser() %}
+  {% if user.is_superuser %}
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Administración<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="/habitaciones/">Gestión de habitaciones</a></li>
-        </ul>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Administración<b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="/habitaciones/">Gestión de habitaciones</a></li>
+        <li><a href="/habitaciones/nueva">Nueva habitacion</a></li>
+      </ul>
     </li>
   {% endif %}
 </ul>
@@ -87,7 +88,7 @@
       {% csrf_token %}
       <input type="text" name="username" class="span2" placeholder="Usuario"/>
       <input type="password" name="password" class="span2" placeholder="Contraseña"/>
-      <button type="submit" class="btn" value="Conectar"/>
+      <button type="submit" class="btn" value="login">Ingresar</button>
     </form>
   {% endif %}
 </ul>

@@ -2,7 +2,7 @@
 
 {% block container %}
 
-<form class="well form-horizontal" method="post" action="/reservas/nueva/pag3">
+<form class="well form-horizontal" method="post" action="/reservas/nueva/pag2">
   {% csrf_token %}
   <fieldset>
     <legend>Datos Personales</legend>
@@ -11,11 +11,11 @@
       <label class="control-label" for="tipo_documento">Documento</label>
       <div class="controls">
         <select class="span1" id="tipo_documento" name="tipo_documento">
-          {% for x in TIPO_DOCUMENTO %}
+          {% for x in TIPO_DOCUMENTOS %}
             <option value="{{ x }}"> x </option>
           {% endfor %}
         </select>
-        <input class="span2" name="numero_documento", id="documento"/>
+        <input class="span2" id="documento" name="numero_documento"/>
       </div>
     </div>
 
