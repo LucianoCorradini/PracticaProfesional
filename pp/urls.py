@@ -18,8 +18,8 @@ urlpatterns = patterns('',
     url(r'^logout$', accounts.logout),
 
     url(r'^reservas/nueva/pag1$', app.reservas_nueva_1), # tipo habitacion
-    url(r'^reservas/nueva/pag2$', app.reservas_nueva_2), # servicios
-    url(r'^reservas/nueva/pag3$', app.reservas_nueva_3), # datos personales
+    url(r'^reservas/nueva/pag2$', app.reservas_nueva_2), # datos personales
+    url(r'^reservas/nueva/pag3$', app.reservas_nueva_3), # reporte final
 
     url(r'^reservas$', app.reservas), # busqueda y listado
     url(r'^reservas/consultar$', app.reservas_consultar), # busqueda por codigo

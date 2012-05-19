@@ -79,7 +79,7 @@ class TurnoHabitacion(models.Model):
 class Reserva(models.Model):
     cliente = models.ForeignKey(Persona, on_delete=models.PROTECT)
     estado = models.CharField(max_length=1, choices=ENUMERADO_ESTADOS_RESERVA)
-    empresa = models.BooleanField()
+    empresa = models.BooleanField(default=False)
     inicio = models.DateTimeField()
     fin = models.DateTimeField()
     creado = models.DateTimeField()
