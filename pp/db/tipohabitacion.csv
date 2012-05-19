@@ -1,5 +1,5 @@
 id,nombre,descripcion,capacidad,imagen_url,activo
-1,'matrimonial','Habitación con cama matrimonial',2,'../static/images/1.jpg',1
-2,'doble','Habitación con 2 camas individuales',2,'../static/images/2.jpg',1
-3,'familiar estándar','Habitación con cama matrimonial y habitación con 2 individuales.',4,'../static/images/ImagenNoDisponible.gif',1
-4,'Cuádruple','Habitación con 4 camas individuales',4,'../static/images/4.jpg',1
+1,'matrimonial','Habitación con cama matrimonial',2,'images/1.jpg',1
+2,'doble','Habitación con 2 camas individuales',2,'images/2.jpg',1
+3,'familiar estándar','Habitación con cama matrimonial y habitación con 2 individuales.',4,'images/ImagenNoDisponible.gif',1
+4,'Cuádruple','Habitación con 4 camas individuales',4,'images/4.jpg',1
